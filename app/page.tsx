@@ -9,12 +9,33 @@ export default function TerminalPortfolio() {
   const [currentCommand, setCurrentCommand] = useState("")
   const [commandHistory, setCommandHistory] = useState<Array<{ command: string; output: JSX.Element }>>([])
   const [showCursor, setShowCursor] = useState(true)
+  const [currentDateTime, setCurrentDateTime] = useState("")
 
   useEffect(() => {
     const interval = setInterval(() => {
       setShowCursor((prev) => !prev)
     }, 500)
     return () => clearInterval(interval) // Fixed clear interval function
+  }, [])
+
+  useEffect(() => {
+    const updateDateTime = () => {
+      const now = new Date()
+      const options: Intl.DateTimeFormatOptions = {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }
+      setCurrentDateTime(now.toLocaleDateString("en-US", options))
+    }
+
+    updateDateTime()
+    const interval = setInterval(updateDateTime, 1000)
+    return () => clearInterval(interval)
   }, [])
 
   useEffect(() => {
@@ -55,6 +76,12 @@ export default function TerminalPortfolio() {
           </div>
           <div>
             <span className="text-accent">hobbies</span> - Personal interests
+          </div>
+          <div>
+            <span className="text-accent">privacy</span> - Privacy policy link
+          </div>
+          <div>
+            <span className="text-accent">terms</span> - Terms and conditions link
           </div>
           <div>
             <span className="text-accent">clear</span> - Clear terminal
@@ -158,6 +185,44 @@ export default function TerminalPortfolio() {
         <div>• Programming</div>
       </div>
     ),
+    privacy: () => (
+      <div className="command-output">
+        <div className="text-primary font-bold mb-2">Privacy Policy</div>
+        <div className="mb-2">Access our complete privacy policy at:</div>
+        <div className="text-accent">
+          <a
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-green-300 transition-colors"
+          >
+            https://fraddygil.com/privacy
+          </a>
+        </div>
+        <div className="text-muted-foreground text-sm mt-2">
+          Click the link above to view our complete privacy policy in a new tab.
+        </div>
+      </div>
+    ),
+    terms: () => (
+      <div className="command-output">
+        <div className="text-primary font-bold mb-2">Terms and Conditions</div>
+        <div className="mb-2">Access our complete terms and conditions at:</div>
+        <div className="text-accent">
+          <a
+            href="/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-green-300 transition-colors"
+          >
+            https://fraddygil.com/terms
+          </a>
+        </div>
+        <div className="text-muted-foreground text-sm mt-2">
+          Click the link above to view our complete terms and conditions in a new tab.
+        </div>
+      </div>
+    ),
     clear: () => null,
   }
 
@@ -188,7 +253,7 @@ export default function TerminalPortfolio() {
     }
   }
 
-  const quickCommands = ["about", "experience", "skills", "contact", "help"]
+  const quickCommands = ["about", "experience", "skills", "contact", "privacy", "terms", "help"]
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -215,6 +280,7 @@ export default function TerminalPortfolio() {
               </div>
               <div className="terminal-title">fraddygil@mossit: ~/personal-website</div>
               <div className="terminal-menu">
+                <div className="terminal-datetime text-xs text-green-400 mr-2">{currentDateTime}</div>
                 <div className="terminal-menu-item">⚙️</div>
               </div>
             </div>
