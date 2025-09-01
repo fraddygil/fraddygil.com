@@ -46,7 +46,7 @@ export default function TerminalPortfolio() {
         output: (
           <div className="command-output">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo-fg.png" alt="FG Logo" className="w-8 h-8 rounded-full opacity-80" />
+              <img src="/logo-fg.png" alt="FG Logo" className="w-12 h-12 rounded-full opacity-80" />
               <div className="text-primary font-bold">Welcome to Fraddy Gil's Terminal Portfolio</div>
             </div>
             <div className="mb-2">Type 'help' to see available commands</div>
@@ -281,8 +281,7 @@ export default function TerminalPortfolio() {
                 <div className="terminal-button terminal-minimize"></div>
                 <div className="terminal-button terminal-maximize"></div>
               </div>
-              <div className="terminal-title flex items-center gap-2">
-                <img src="/logo-fg.png" alt="FG Logo" className="w-4 h-4 rounded-full opacity-70" />
+              <div className="terminal-title flex items-center justify-center flex-1 gap-2">
                 fraddygil@mossit: ~/personal-website
               </div>
               <div className="terminal-menu">
