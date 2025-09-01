@@ -9,8 +9,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export', // 👈 requerido para Cloudflare Pages
-
 }
 
 export default nextConfig
