@@ -45,7 +45,10 @@ export default function TerminalPortfolio() {
         command: "welcome",
         output: (
           <div className="command-output">
-            <div className="text-primary font-bold mb-2">Welcome to Fraddy Gil's Terminal Portfolio</div>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/logo-fg.png" alt="FG Logo" className="w-8 h-8 rounded-full opacity-80" />
+              <div className="text-primary font-bold">Welcome to Fraddy Gil's Terminal Portfolio</div>
+            </div>
             <div className="mb-2">Type 'help' to see available commands</div>
             <div className="text-muted-foreground">fraddygil@mossit:~$</div>
           </div>
@@ -278,7 +281,10 @@ export default function TerminalPortfolio() {
                 <div className="terminal-button terminal-minimize"></div>
                 <div className="terminal-button terminal-maximize"></div>
               </div>
-              <div className="terminal-title">fraddygil@mossit: ~/personal-website</div>
+              <div className="terminal-title flex items-center gap-2">
+                <img src="/logo-fg.png" alt="FG Logo" className="w-4 h-4 rounded-full opacity-70" />
+                fraddygil@mossit: ~/personal-website
+              </div>
               <div className="terminal-menu">
                 <div className="terminal-datetime text-xs text-green-400 mr-2">{currentDateTime}</div>
                 <div className="terminal-menu-item">⚙️</div>
@@ -314,11 +320,15 @@ export default function TerminalPortfolio() {
               </div>
 
               {/* Quick Commands */}
-              <div className="mt-8 pt-4 border-t border-border">
-                <div className="text-muted-foreground text-xs mb-2">Quick commands:</div>
-                <div className="flex flex-wrap gap-2">
+              <div className="mt-8 pt-4 border-t border-border/30">
+                <div className="text-muted-foreground/60 text-xs mb-2">Quick commands:</div>
+                <div className="flex flex-wrap gap-2 justify-start">
                   {quickCommands.map((cmd) => (
-                    <button key={cmd} onClick={() => handleCommand(cmd)} className="command-button text-xs">
+                    <button
+                      key={cmd}
+                      onClick={() => handleCommand(cmd)}
+                      className="command-button text-xs opacity-60 hover:opacity-100 transition-opacity"
+                    >
                       {cmd}
                     </button>
                   ))}
