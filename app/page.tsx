@@ -111,7 +111,7 @@ export default function TerminalPortfolio() {
 
         <div className="mb-4">
           <div className="text-accent font-bold">CSQ Non Stop Shop – Head of NOC</div>
-          <div className="text-muted-foreground mb-2">June 2021 – Present</div>
+          <div className="text-muted-foreground mb-2">June 2021 – September 2025</div>
           <div className="text-sm">
             <div>• Led efforts to improve monitoring, incident management and on-call practices</div>
             <div>• Implementation of new ticket management system and procedures</div>
@@ -173,7 +173,7 @@ export default function TerminalPortfolio() {
     languages: () => (
       <div className="command-output">
         <div className="text-primary font-bold mb-2">Languages</div>
-        <div>• English (Professional working/Fluent)</div>
+        <div>• English (Professional working)</div>
         <div>• Spanish (Native)</div>
       </div>
     ),
