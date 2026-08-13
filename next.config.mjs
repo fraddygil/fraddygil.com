@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // 👈 requerido para Cloudflare Pages
   eslint: {
     ignoreDuringBuilds: true,
   },
